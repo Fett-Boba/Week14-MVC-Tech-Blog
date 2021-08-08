@@ -1,0 +1,37 @@
+<div class="container border border-dark">
+     <div class="row bg-dark text-white">
+          <div class="col-9">
+               <h3>{{post.post_title}}</h3>
+          </div>
+          <div class="col d-flex align-items-center">
+               <small>Posted by {{post.user.username}} on {{format_date post.post_date}}</small>
+          </div>
+     </div>
+
+     <div class="row p-3">
+          {{post.post_body}}
+     </div>
+
+     <div>
+          <h4>Comments:</h4>
+          {{#each post.comments as |comment|}}
+               <figure>
+                    <blockquote class="blockquote">
+                         <p><small>{{comment.comment_body}}</small></p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                         <cite title="Source Title">{{user.username}} on
+                              {{format_date comment.comment_date}}</cite>
+                    </figcaption>
+               </figure>
+          {{/each}}
+     </div>
+</div>
+<br>
+
+<div class="text-center">
+     <button type="button" class="btn btn-dark" id="deleteBtn" value="{{post.id}}">Delete post and associated
+          comments?</button>
+</div>
+<br>
+<script src="/js/deletePost.js"></script>

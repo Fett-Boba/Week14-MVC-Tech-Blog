@@ -17,4 +17,19 @@ router.post('/', withAuth, async (req, res) => {
      }
 });
 
+// Delete post by ID. Login required.
+router.delete('/:id', withAuth, async (req, res) => {
+     try {
+          const postData = await Post.destroy({
+               where: {
+                    id: req.params.id,
+               },
+          });
+          res.status(200).json(postData);
+     } catch (err) {
+          console.log(err);
+          res.status(500).json(err);
+     }
+});
+
 module.exports = router;
