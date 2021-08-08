@@ -55,6 +55,33 @@ router.get('/delete/:id', withAuth, async (req, res) => {
      }
 });
 
+// Render page for updates
+router.get('/update/:id', withAuth, async (req, res) => {
+     try {
+          const postData = await Post.findByPk(req.params.id, {
+               include: [
+                    {
+                         model: Comment, attributes: ['user_id', 'comment_body', 'comment_date'],
+                         include: [{ model: User, attributes: ['username'] }],
+                    },
+                    {
+                         model: User, attributes: ['username']
+                    },
+               ],
+          });
+          const post = postData.get({ plain: true });
+          res.render('dashboardUpdate', { post, logged_in: req.session.logged_in });
+     } catch (err) {
+          console.log(err);
+          res.status(500).json(err);
+     }
+});
+
+
+
+
+
+
 
 module.exports = router;
 
