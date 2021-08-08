@@ -13,20 +13,6 @@
 
 <body class="container">
 
-     {{!-- <header class="display-flex justify-space-between align-center p-2">
-          <h1>User Registry</h1>
-          {{#if logged_in}}
-               <nav>
-                    <button class="btn" id="logout">Logout</button>
-               </nav>
-          {{/if}}
-     </header>
-     <main class="container container-fluid mt-5">
-          {{{ body }}}
-     </main>
-     <footer>
-     </footer> --}}
-
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
                <div class="collapse navbar-collapse" id="navbarNav">
@@ -39,11 +25,9 @@
                          </li>
                          {{#if logged_in}}
                               <li class="nav-item">
-                                   <a class="nav-link" id="logout" href="/api/logout">Logout</a>
+                                   {{!-- <a class="nav-link" id="logout" href="/logout">Logout</a> --}}
+                                   <button id="logout" class="btn-no-style">logout</button>
                               </li>
-                              {{!-- <div>
-                                   <button class="btn" id="logout">Logout</button>
-                              </div> --}}
                          {{else}}
                               <li class="nav-item">
                                    <a class="nav-link" href="/login">Login</a>
@@ -53,7 +37,6 @@
                </div>
           </div>
      </nav>
-
 
      <header class="bg-dark container">
           <button type="button" class="btn btn-light btn-lg">
@@ -68,8 +51,6 @@
           {{{ body }}}
      </main>
 
-
-
      <!-- Only include the logout script if the user is logged in -->
      {{#if logged_in}}
           <script src="/js/logout.js"></script>
@@ -79,7 +60,6 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-
 
 </body>
 
