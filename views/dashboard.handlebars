@@ -1,0 +1,66 @@
+<h2>Dashboard for {{userPosts.username}}</h2>
+<br>
+
+{{!-- {{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}} --}}
+
+
+
+<div>
+     {{#if userPosts.posts.length}}
+          {{#each userPosts.posts as |post|}}
+               <div class="container border border-dark">
+                    <div class="row bg-dark text-white">
+
+                         <div class="col-10">
+                              <h3>{{format_date post.post_date}}: {{post.post_title}}</h3>
+                         </div>
+
+                         <div class="col-1 d-flex align-items-center justify-content-end">
+                              {{!-- <a href="/api/post/update/{{post.id}}"> --}}
+                              <a href="#">
+                                   <i class=" fas fa-edit" style="font-size: 30px; color: #7CFC00;"></i>
+                              </a>
+                         </div>
+
+
+                         <div class="col-1 d-flex align-items-center justify-content-center">
+                              {{!-- <a href="/{{post.id}}" id="deletePost" onclick="deletePost({{post.id}})"> --}}
+                              <a href="#" id="deletePost" onclick="deletePost({{post.id}})">
+                                   <i class=" fas fa-trash-alt" style="font-size: 30px; color: red;"></i>
+                              </a>
+                         </div>
+
+                    </div>
+
+                    <div class="row p-3">
+                         {{post.post_body}}
+                    </div>
+               </div>
+               <br>
+          {{/each}}
+     {{else}}
+          <h4 class="d-flex justify-content-center">Welcome! Enter your very first post ...</h4><br><br>
+     {{/if}}
+</div>
+
+{{!-- <form action="/api/post">
+     <div class="text-center">
+          <button type="submit" class="btn btn-dark">Create New Post</button>
+     </div>
+</form>
+
+<br>
+
+<script src="/js/postUpdate.js"></script> --}}
