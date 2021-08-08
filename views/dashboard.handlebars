@@ -1,22 +1,6 @@
 <h2>Dashboard for {{userPosts.username}}</h2>
 <br>
 
-{{!-- {{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}} --}}
-
-
-
 <div>
      {{#if userPosts.posts.length}}
           {{#each userPosts.posts as |post|}}
@@ -55,12 +39,15 @@
      {{/if}}
 </div>
 
-{{!-- <form action="/api/post">
-     <div class="text-center">
-          <button type="submit" class="btn btn-dark">Create New Post</button>
-     </div>
-</form>
+{{!-- <form action="/dashboard/addnewpost"> --}}
+<div class="text-center">
+     {{!-- <button type="submit" class="btn btn-dark">Create New Post</button> --}}
+
+     <button type="submit" class="btn btn-dark add-new"><a class="link" href="/dashboard/add">Create New
+               Post</button></a>
+</div>
+{{!-- </form> --}}
 
 <br>
 
-<script src="/js/postUpdate.js"></script> --}}
+{{!-- <script src="/js/postUpdate.js"></script> --}}

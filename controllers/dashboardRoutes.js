@@ -26,6 +26,12 @@ router.get('/', withAuth, async (req, res) => {
      }
 });
 
+// Render page to add new post
+router.get("/add", (req, res) => {
+     res.render("dashboardAdd", {
+          loggedIn: true,
+     });
+});
 
 
 
